@@ -116,7 +116,6 @@ npx cap open android
   <img src="https://github.com/user-attachments/assets/52299944-2999-477c-a5c1-cfee8fbd3ced" width="260" alt="Formulario de datos personales"/>
   &nbsp;&nbsp;&nbsp;
   <img src="https://github.com/user-attachments/assets/7331c84e-c469-4c36-8211-16b5ae65e422" width="260" alt="Formulario de postulación"/>
-  
 </p>
 
 ### Listado de postulantes registrados
