@@ -12,7 +12,7 @@ Aplicación móvil híbrida desarrollada con **Ionic Framework (Angular Standalo
 
 ## Modelo de datos (Firestore)
 
-Cada postulación se almacena como un documento dentro de la colección `postulantes` de Firebase Firestore, utilizando la siguiente estructura:
+Cada postulación se almacena como un documento dentro de la colección `candidatos` de Firebase Firestore, utilizando la siguiente estructura:
 
 ```json
 {
