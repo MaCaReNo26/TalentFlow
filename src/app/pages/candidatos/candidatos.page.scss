@@ -1,0 +1,137 @@
+.contenedor {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.encabezado {
+  text-align: center;
+  margin: 20px 0 25px;
+  h1 {
+    color: var(--ion-text-color);
+    font-size: 24px;
+    font-weight: 700;
+  }
+  p {
+    color: var(--ion-text-color);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+.resumen {
+  background: var(--ion-color-primary);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: white;
+  }
+}
+
+ion-card {
+  border-radius: 12px;
+  margin: 16px 0;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  color: var(--ion-text-color);
+}
+
+ion-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ion-text-color);
+}
+
+ion-card-content {
+  padding: 12px 16px 18px;
+  color: var(--ion-text-color);
+}
+
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --color: var(--ion-text-color);
+  margin-bottom: 5px;
+  p {
+    color: var(--ion-color-medium);
+    font-size: 12px;
+  }
+  h2,
+  h3 {
+    color: var(--ion-text-color);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+    white-space: normal;
+  }
+}
+
+ion-label {
+  color: var(--ion-text-color);
+}
+
+ion-badge {
+  margin-top: 8px;
+  margin-right: 5px;
+  padding: 7px 10px;
+}
+
+.estado {
+  text-align: center;
+  padding: 40px 10px;
+  ion-spinner {
+    width: 40px;
+    height: 40px;
+  }
+  p {
+    color: var(--ion-color-medium);
+  }
+}
+
+.vacio {
+  text-align: center;
+  padding: 40px 15px;
+  h2 {
+    font-size: 18px;
+    color: var(--ion-text-color);
+  }
+  p {
+    color: var(--ion-color-medium);
+    font-size: 14px;
+  }
+}
+
+.habilidades {
+  margin-top: 20px;
+  p {
+    color: var(--ion-color-medium);
+    font-size: 13px;
+  }
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.texto-resumen {
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  color: var(--ion-text-color);
+}
+
+ion-button {
+  margin-top: 15px;
+  font-weight: 600;
+}

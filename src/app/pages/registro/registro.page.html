@@ -1,0 +1,315 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>TalentFlow - Registro</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="light" (click)="themeService.alternarTema()">
+        {{ themeService.esOscuro ? '☀️' : '🌙' }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="contenedor">
+
+    <div class="encabezado">
+      <h1>Registro de postulantes</h1>
+      <p>
+        Completa el siguiente formulario para registrar
+        tu hoja de vida en TalentFlow S.A.
+      </p>
+    </div>
+
+    <form [formGroup]="formulario" (ngSubmit)="guardarCandidato()">
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>1. Datos personales</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item>
+            <ion-input label="Nombres y apellidos" labelPlacement="stacked" placeholder="Ej. Ana Pérez"
+              formControlName="nombres">
+            </ion-input>
+          </ion-item>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('nombres')?.touched && formulario.get('nombres')?.errors?.['required']">
+            Los nombres son obligatorios.
+          </ion-note>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('nombres')?.touched && formulario.get('nombres')?.errors?.['minlength']">
+            Debe ingresar al menos 3 caracteres.
+          </ion-note>
+
+          <ion-item>
+            <ion-input type="email" label="Correo electrónico" labelPlacement="stacked" placeholder="ejemplo@correo.com"
+              formControlName="correo">
+            </ion-input>
+          </ion-item>
+
+          <ion-note color="danger" *ngIf="formulario.get('correo')?.touched && formulario.get('correo')?.invalid">
+            Ingrese un correo electrónico válido.
+          </ion-note>
+
+          <ion-item>
+            <ion-input type="tel" label="Teléfono" labelPlacement="stacked" placeholder="0990000000"
+              formControlName="telefono">
+            </ion-input>
+          </ion-item>
+
+          <ion-note color="danger" *ngIf="formulario.get('telefono')?.touched && formulario.get('telefono')?.invalid">
+            Ingrese un teléfono de entre 7 y 15 dígitos.
+          </ion-note>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">
+              Fecha de nacimiento
+            </ion-label>
+          </ion-item>
+
+          <ion-datetime presentation="date" [value]="formulario.get('fechaNacimiento')?.value"
+            (ionChange)="actualizarFecha('fechaNacimiento', $event)" [showDefaultButtons]="true" doneText="Aceptar"
+            cancelText="Cancelar">
+          </ion-datetime>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('fechaNacimiento')?.touched && formulario.get('fechaNacimiento')?.errors?.['required']">
+            La fecha de nacimiento es obligatoria.
+          </ion-note>
+
+          <ion-note color="danger" *ngIf="formulario.get('fechaNacimiento')?.errors?.['fechaFutura']">
+            La fecha de nacimiento no puede ser futura.
+          </ion-note>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>2. Perfil profesional</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item>
+            <ion-select label="Cargo al que postula" labelPlacement="stacked" placeholder="Seleccione un cargo"
+              formControlName="cargo">
+              <ion-select-option value="Desarrollador móvil">
+                Desarrollador móvil
+              </ion-select-option>
+
+              <ion-select-option value="Analista de datos">
+                Analista de datos
+              </ion-select-option>
+
+              <ion-select-option value="Diseñador UX/UI">
+                Diseñador UX/UI
+              </ion-select-option>
+
+              <ion-select-option value="Soporte TI">
+                Soporte TI
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-note color="danger" *ngIf="formulario.get('cargo')?.touched && formulario.get('cargo')?.invalid">
+            Seleccione un cargo.
+          </ion-note>
+
+          <div class="subtitulo">
+            <h3>Nivel académico</h3>
+          </div>
+
+          <ion-radio-group formControlName="nivelAcademico">
+            <ion-item>
+              <ion-radio value="Bachillerato">
+                Bachillerato
+              </ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-radio value="Tecnología">
+                Tecnología
+              </ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-radio value="Tercer nivel">
+                Tercer nivel
+              </ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-radio value="Posgrado">
+                Posgrado
+              </ion-radio>
+            </ion-item>
+          </ion-radio-group>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('nivelAcademico')?.touched && formulario.get('nivelAcademico')?.invalid">
+            Seleccione su nivel académico.
+          </ion-note>
+
+          <ion-item>
+            <ion-input type="number" label="Años de experiencia" labelPlacement="stacked" placeholder="Ej. 2"
+              formControlName="experienciaAnios">
+            </ion-input>
+          </ion-item>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('experienciaAnios')?.touched && formulario.get('experienciaAnios')?.invalid">
+            Ingrese un número entero entre 0 y 50.
+          </ion-note>
+
+          <div class="subtitulo">
+            <h3>Modalidad de trabajo</h3>
+          </div>
+
+          <ion-segment formControlName="modalidad">
+            <ion-segment-button value="Presencial">
+              <ion-label>Presencial</ion-label>
+            </ion-segment-button>
+
+            <ion-segment-button value="Híbrida">
+              <ion-label>Híbrida</ion-label>
+            </ion-segment-button>
+
+            <ion-segment-button value="Remota">
+              <ion-label>Remota</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+
+          <ion-note color="danger" *ngIf="formulario.get('modalidad')?.touched && formulario.get('modalidad')?.invalid">
+            Seleccione una modalidad.
+          </ion-note>
+
+          <div class="subtitulo">
+            <h3>Habilidades técnicas</h3>
+            <p>Seleccione al menos una habilidad.</p>
+          </div>
+
+          <div *ngFor="let habilidad of habilidadesDisponibles">
+            <ion-item lines="none">
+              <ion-checkbox slot="start" [checked]="formulario.get('habilidades')?.value.includes(habilidad)"
+                (ionChange)="cambiarHabilidad(habilidad, $event)">
+              </ion-checkbox>
+              <ion-label>{{ habilidad }}</ion-label>
+            </ion-item>
+          </div>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('habilidades')?.touched && formulario.get('habilidades')?.invalid">
+            Seleccione al menos una habilidad.
+          </ion-note>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>3. Disponibilidad laboral</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item lines="none">
+            <ion-label position="stacked">
+              Fecha disponible para iniciar
+            </ion-label>
+          </ion-item>
+
+          <ion-datetime presentation="date" [value]="formulario.get('fechaDisponibilidad')?.value"
+            (ionChange)="actualizarFecha('fechaDisponibilidad', $event)" [showDefaultButtons]="true" doneText="Aceptar"
+            cancelText="Cancelar">
+          </ion-datetime>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('fechaDisponibilidad')?.touched && formulario.get('fechaDisponibilidad')?.errors?.['required']">
+            La fecha de disponibilidad es obligatoria.
+          </ion-note>
+
+          <ion-note color="danger" *ngIf="formulario.get('fechaDisponibilidad')?.errors?.['fechaPasada']">
+            La fecha no puede ser anterior a hoy.
+          </ion-note>
+
+          <ion-item>
+            <ion-input type="number" label="Aspiración salarial (USD)" labelPlacement="stacked" placeholder="Ej. 1200"
+              formControlName="aspiracionSalarial">
+            </ion-input>
+          </ion-item>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('aspiracionSalarial')?.touched && formulario.get('aspiracionSalarial')?.invalid">
+            Ingrese una aspiración salarial mayor que cero.
+          </ion-note>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>4. Resumen profesional</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item>
+            <ion-textarea label="Cuéntenos sobre su perfil profesional" labelPlacement="stacked"
+              placeholder="Describa su experiencia, conocimientos y objetivos profesionales..." [autoGrow]="true"
+              rows="5" formControlName="resumen">
+            </ion-textarea>
+          </ion-item>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('resumen')?.touched && formulario.get('resumen')?.errors?.['required']">
+            El resumen profesional es obligatorio.
+          </ion-note>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('resumen')?.touched && formulario.get('resumen')?.errors?.['minlength']">
+            El resumen debe contener al menos 30 caracteres.
+          </ion-note>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>5. Consentimiento</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item lines="none">
+            <ion-checkbox slot="start" formControlName="consentimiento">
+            </ion-checkbox>
+            <ion-label class="ion-text-wrap">
+              Acepto el tratamiento de mis datos personales
+              para fines de evaluación de mi postulación
+              en TalentFlow S.A.
+            </ion-label>
+          </ion-item>
+
+          <ion-note color="danger"
+            *ngIf="formulario.get('consentimiento')?.touched && formulario.get('consentimiento')?.invalid">
+            Debe aceptar el tratamiento de datos para continuar.
+          </ion-note>
+        </ion-card-content>
+      </ion-card>
+
+      <div class="botones">
+        <ion-button expand="block" type="submit" [disabled]="cargando">
+          <ion-spinner *ngIf="cargando" name="crescent">
+          </ion-spinner>
+          <span *ngIf="!cargando">
+            Registrar postulante
+          </span>
+          <span *ngIf="cargando">
+            Guardando...
+          </span>
+        </ion-button>
+
+        <ion-button expand="block" fill="outline" color="primary" href="/candidatos">
+          Ver candidatos registrados
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
