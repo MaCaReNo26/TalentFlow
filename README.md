@@ -58,8 +58,8 @@ Cada postulación se almacena como un documento dentro de la colección `candida
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/talentflow-ionic-firebase.git
-cd talentflow-ionic-firebase
+git clone https://github.com/MaCaReNo26/TalentFlow.git
+cd talentflow
 ```
 
 ### 2. Instalar dependencias
