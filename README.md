@@ -116,14 +116,15 @@ npx cap open android
   <img src="https://github.com/user-attachments/assets/52299944-2999-477c-a5c1-cfee8fbd3ced" width="260" alt="Formulario de datos personales"/>
   &nbsp;&nbsp;&nbsp;
   <img src="https://github.com/user-attachments/assets/7331c84e-c469-4c36-8211-16b5ae65e422" width="260" alt="Formulario de postulación"/>
-  &nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/661cec73-6cc2-4c0c-901f-caa0284da06e" width="260" alt="Resumen y consentimiento"/>
+  
 </p>
 
 ### Listado de postulantes registrados
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3b8a33ae-671e-42bd-8cfd-4d31aee21aad" width="260" alt="Listado de postulantes registrados"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/661cec73-6cc2-4c0c-901f-caa0284da06e" width="260" alt="Resumen y consentimiento"/>
 </p>
 
 ### Hoja de vida digital
