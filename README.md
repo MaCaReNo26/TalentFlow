@@ -136,4 +136,4 @@ npx cap open android
 
 ---
 
-**By Alex** 
+**By Alex Suárez** 
