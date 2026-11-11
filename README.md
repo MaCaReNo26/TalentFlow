@@ -136,6 +136,4 @@ npx cap open android
 
 ---
 
-**TalentFlow S.A.**  
-Sistema de registro e inspección digital de postulantes.  
-Desarrollado con Ionic, Angular y Firebase.
+**By Alex** 
